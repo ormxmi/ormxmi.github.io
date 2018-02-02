@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
+::-webkit-scrollbar { 
+    display: none; 
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.left{
+    width: 50vw;
+    height: 100vh;
+    transition: 0.3s ;
+    position: absolute;
+    left: 0;
+    background: white;
+    
+}
+.leftHeader{
+    background-color: black;
+    position: absolute;
+    top:20%;
+    left: calc(50% - 110px);
+    color: white;
+    transition: 0.4s;
+}
+.left a{
+    padding: 10px;
+    font-size: 25px;
+    color: black;
+    transition: 0.4s;
+    position: absolute;
+    top: 50%;
+    left: 47%;
+}
+.right{
+    width: 50vw;
+    height: 100vh;
+    transition: 0.3s;
+    position: absolute;
+    right: 0;
+    background: black;
+    
+}
+.rightHeader{
+    background-color: white;
+    
+    
+    color: black;
+}
+.rghtHdr1{
+    position: absolute;
+    top: 10%;
+    left: 15%;
+}
+.rghtHdr2{
+    position: absolute;
+    top: 22%;
+    left:50%;
+}
+.rghtHdr3{
+    position: absolute;
+    top: 37%;
+    left: calc(50% - 76px);
+}
+.right a{
+    padding: 10px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    font-size: 25px;
+    left: 47%;
+}
+
+.blackRect{
+    background-color: black;    
+    z-index: 3;
+    height: 10vh;
+    position: absolute;
+    bottom: 15%;
+    width: 50vw;
+    transition: 0.0s !important;
+    margin-left: 0;
+    position: absolute;
+    right: 0;
+}
+.blackRect h1{
+    
+ 
+    font-family: Cutive Mono,monospace;
+    color: black;
+    font-size: calc(1vw + 40px);
+    line-height:10vh;
+    text-align: center;
+    margin-left: 0;
+    
+}
+.whiteRect{
+    background-color: white;   
+    z-index: 3;
+    height: 10vh;
+    position: absolute;
+    bottom: 15%;
+    width: 50vw;
+    transition: 0.3s;
+    margin-right: 0;
+}
+.whiteRect h1{
+    
+ 
+    font-family: Cutive Mono,monospace;
+    color: white;
+    font-size: calc(1vw + 40px);
+    line-height:10vh;
+    text-align: center;
+    margin-left: 0;
+    
+}
+#leftRandomTextBox1{
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    color: red;
+    z-index: 1;
+}
+#leftRandomTextBox2{
+    position: absolute;
+    color: red;
+    top:35%;
+    left: 5%;
+    z-index: 1;
+}
+#leftRandomTextBox3{
+    position: absolute;
+    color: red;
+    top:55%;
+    right: 10%;
+    z-index: 1;
+}
+#volumeOn{
+    position: absolute;
+    font-size: 20px;
+    padding:8px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.subLeft{
+    position: absolute;
+    top:100%;
+    width: 50vw;
+    height: 100vh;
+    left: 0;
+    background-color: black;
+}
+.subRight{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    background-color: white;
+}
+
+
+
+
+
+
+
+
