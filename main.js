@@ -63,7 +63,7 @@ $(document).ready(function(){
     })
 
 
-var randomWords = ["tick tock", "how?", "where?","チョコレート","どこで","クロック","hentai","qj mi kura","dick"];
+var randomWords = ["tick tock", "12/03/1998", "","チョコレート","どこで","クロック","","pursued","vending","pity","excess"];
 var randomWord = 0,lastRandomWord=0,h1tag="",lasth1tag="",word="",i=0,lasti=0;
 var randWidth = 0,lastRandWidth=0,randWidthCSS="";
 setInterval(function(){
@@ -74,7 +74,7 @@ setInterval(function(){
     
     while(i==lasti){i=Math.floor((Math.random() * 3 + 1));} //not repeating the same h1 box 2 times
     lasti = i; 
-    while(lastRandomWord==randomWord){randomWord = Math.floor((Math.random() * 8))}; //not repeating the same text 2 times
+    while(lastRandomWord==randomWord){randomWord = Math.floor((Math.random() * 9))}; //not repeating the same text 2 times
     lastRandomWord=randomWord;
     if(h1tag!=""){ //doing this only if it is not the first time looping the setInterval
     
