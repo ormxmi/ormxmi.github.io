@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -6,7 +9,6 @@
     padding: 0;
     margin: 0;
 }
-
 .left{
     width: 50vw;
     height: 100vh;
@@ -71,9 +73,8 @@
     font-size: 25px;
     left: 47%;
 }
-
 .blackRect{
-    background-color: black;    
+    
     z-index: 3;
     height: 10vh;
     position: absolute;
@@ -83,6 +84,11 @@
     margin-left: 0;
     position: absolute;
     right: 0;
+    background-attachment: fixed;
+    background-image: url(pics/goth-woman.jpg);
+    background-position: 100%,75%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .blackRect h1{
     
@@ -93,6 +99,9 @@
     line-height:10vh;
     text-align: center;
     margin-left: 0;
+    
+}
+.marked{
     
 }
 .whiteRect{
@@ -144,7 +153,6 @@
     margin-top: 5px;
     margin-left: 5px;
 }
-
 .subLeft{
     position: absolute;
     top:100%;
