@@ -43,7 +43,7 @@ $(document).ready(function(){
         clearInterval(markTextFn);
         $('.blackRect').find('span').css("background-color","rgba(0,0,0,0)");
         spanIdLeft = 0;
-        $(this).css("color","rgba(0,0,0,0)");
+        $(this).css("color","red");
     })
     
      $('.whiteRect>h1').hover(function(){
