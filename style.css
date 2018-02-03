@@ -86,7 +86,7 @@
     right: 0;
     background-attachment: fixed;
     background-image: url(pics/goth-woman.jpg);
-    background-position: 100%,75%;
+    background-position: right top;
     background-repeat: no-repeat;
     background-size: cover;
 }
