@@ -25,13 +25,15 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop:heightPage},777)
     })
     $('.blackRect>h1').hover(function(){
-        $(this).css("color","red");
+        
         $(this).css("cursor","pointer");
         markTextFn= setInterval(function(){
         if(spanIdLeft==0){
             $('.blackRect').find("span").css("background-color","rgba(216, 86, 88,0)")
         }
-        $(blackRectSpanList[spanIdLeft]).css("background-color","rgba(216, 86, 88,0.7)");
+        $(blackRectSpanList[spanIdLeft-1]).css("mix-blend-mode","color");
+        $(blackRectSpanList[spanIdLeft]).css("mix-blend-mode","lighten");
+       $(blackRectSpanList[spanIdLeft]).css("background-color","rgba(216, 86, 88,0.7)");
         $(blackRectSpanList[spanIdLeft-1]).css("background-color","rgba(216, 86, 88,0)");
         
         
@@ -42,8 +44,9 @@ $(document).ready(function(){
     },function(){
         clearInterval(markTextFn);
         $('.blackRect').find('span').css("background-color","rgba(0,0,0,0)");
+        $('.blackRect').find('span').css("mix-blend-mode","color");
         spanIdLeft = 0;
-        $(this).css("color","red");
+       
     })
     
      $('.whiteRect>h1').hover(function(){

@@ -86,20 +86,23 @@
     right: 0;
     background-attachment: fixed;
     background-image: url(pics/goth-woman.jpg);
-    background-position: right top;
+    background-position: -450px;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .blackRect h1{
     
- 
+    
     font-family: Cutive Mono,monospace;
-    color: black;
+    color: red;
     font-size: calc(1vw + 40px);
     line-height:10vh;
     text-align: center;
     margin-left: 0;
     
+}
+.blackRect h1>span{
+    mix-blend-mode: color;
 }
 .marked{
     
@@ -113,6 +116,11 @@
     width: 50vw;
     transition: 0.3s;
     margin-right: 0;
+    background-attachment: fixed;
+    background-image: url(pics/grab-the-child.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .whiteRect h1{
     
