@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var markTextFn;var spanIdLeft = 0;var blackRectSpanList = $('span').get();
     $('.left').click(()=>{
         $('.left').css("width","50%");
         $('.right').css("width","50%");
@@ -24,10 +25,25 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop:heightPage},777)
     })
     $('.blackRect>h1').hover(function(){
-        $(this).css("color","white");
+        $(this).css("color","red");
         $(this).css("cursor","pointer");
+        markTextFn= setInterval(function(){
+        if(spanIdLeft==0){
+            $('.blackRect').find("span").css("background-color","rgba(216, 86, 88,0)")
+        }
+        $(blackRectSpanList[spanIdLeft]).css("background-color","rgba(216, 86, 88,0.7)");
+        $(blackRectSpanList[spanIdLeft-1]).css("background-color","rgba(216, 86, 88,0)");
+        
+        
+        
+        spanIdLeft++;
+        if(spanIdLeft==blackRectSpanList.length){spanIdLeft=0;}
+    },100)
     },function(){
-        $(this).css("color","black");
+        clearInterval(markTextFn);
+        $('.blackRect').find('span').css("background-color","rgba(0,0,0,0)");
+        spanIdLeft = 0;
+        $(this).css("color","rgba(0,0,0,0)");
     })
     
      $('.whiteRect>h1').hover(function(){
@@ -58,12 +74,17 @@ $(document).ready(function(){
     
     $('#volumeOnBtn').hover(function(){
         $(this).fadeTo("slow",1);
+        
     },function(){
         $(this).fadeTo("slow",0.1);
-    })
-
-
-var randomWords = ["tick tock", "12/03/1998", "","チョコレート","どこで","クロック","","pursued","vending","pity","excess"];
+        
+    });
+    
+    
+   
+    
+    
+var randomWords = ["tick tock", "12/03/1998","チョコレート","どこで","クロック","pursued","vending","pity","excess"];
 var randomWord = 0,lastRandomWord=0,h1tag="",lasth1tag="",word="",i=0,lasti=0;
 var randWidth = 0,lastRandWidth=0,randWidthCSS="";
 setInterval(function(){
