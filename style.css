@@ -101,7 +101,7 @@ html {
     right: 0;
     background-attachment: fixed;
     background-image: url(pics/goth-woman.jpg);
-    background-position: -450px;
+    background-position: %,100%;
     background-repeat: no-repeat;
     background-size: cover;
 }
