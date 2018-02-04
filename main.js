@@ -96,13 +96,10 @@ $(document).ready(function(){
     });
     
     
-   
-
 var randomWords = ["tick tock", "12/03/1998","チョコレート","どこで","クロック","pursued","vending","pity","excess"];
 var randomWord = 0,lastRandomWord=0,h1tag="",lasth1tag="",word="",i=0,lasti=0;
 var randWidth = 0,lastRandWidth=0,randWidthCSS="";
 setInterval(function(){
-    
     while(randWidth==lastRandWidth){randWidth= Math.floor((Math.random() * 80) + 10);}
     lastRandWidth=randWidth;
     randWidthCSS=randWidth.toString()+"vw";
@@ -122,8 +119,7 @@ setInterval(function(){
     word = randomWords[randomWord];
     document.getElementById(h1tag).innerHTML= word;
     
-    
-},378);
+},460);
     
     
     
