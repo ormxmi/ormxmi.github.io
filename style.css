@@ -9,6 +9,12 @@
     padding: 0;
     margin: 0;
 }
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 .left{
     width: 50vw;
     height: 100vh;
@@ -19,12 +25,21 @@
     
 }
 .leftHeader{
+    padding-top: 1px;
     background-color: black;
     position: absolute;
     top:20%;
-    left: calc(50% - 110px);
+    width: 180px;
+    left: calc(50% - 91px);
     color: white;
     transition: 0.4s;
+    text-align: center;
+}
+.leftHeader>mark{
+    background-color: #ffffff;
+}
+.leftHeader>mark>span{
+    background-color: #dd3939;
 }
 .left a{
     padding: 10px;
@@ -108,6 +123,7 @@
     
 }
 .whiteRect{
+    
     background-color: white;   
     z-index: 3;
     height: 10vh;
@@ -117,22 +133,34 @@
     transition: 0.3s;
     margin-right: 0;
     background-attachment: fixed;
-    background-image: url(pics/grab-the-child.jpg);
+    background-image: url(pics/2_dead_birds.jpg);
     background-position: right;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: contain;
+    text-align: center;
+     
+    
+    
+    
 }
 .whiteRect h1{
-    
- 
+    box-sizing: border-box;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+     transform: translateY(-50%);
+    mix-blend-mode: exclusion;
     font-family: Cutive Mono,monospace;
     color: white;
     font-size: calc(1vw + 40px);
-    line-height:10vh;
+    display: inline-block;
     text-align: center;
-    margin-left: 0;
     
+    border: 3px solid rgba(255,255,255,0);  
+    margin-bottom: -3px;
 }
+
 #leftRandomTextBox1{
     position: absolute;
     top: 5%;
@@ -155,8 +183,9 @@
     z-index: 1;
 }
 #volumeOn{
+    box-sizing:content-box;
     position: absolute;
-    font-size: 20px;
+    font-size: 22px;
     padding:8px;
     margin-top: 5px;
     margin-left: 5px;
