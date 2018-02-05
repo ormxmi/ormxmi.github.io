@@ -52,18 +52,20 @@ $(document).ready(function(){
         $('.whiteRect>h1').css("border","3px solid rgba(255,255,255,1)");
         $('.whiteRect>h1').css("cursor","pointer");
         $('#whiteRectUnder').css("display","inline");
+         $('#whiteRectUnder').css("color","rgba(255,255,255,1)");
         underScoreFn = setInterval(function(){
         if(underline%2!=0)
         {$('#whiteRectUnder').css("color","rgba(255,255,255,0)");
         }
         else
-        {$('#whiteRectUnder').css("color","white");
+        {$('#whiteRectUnder').css("color","rgba(255,255,255,1)");
         }
         underline++;
-         },600)
+         },466)
     },function(){
          clearInterval(underScoreFn); 
-         $('#whiteRectUnder').css("display","none");
+         underline = 1;
+         $('#whiteRectUnder').css("color","rgba(255,255,255,0)");
         $('.whiteRect>h1').css("border","3px solid rgba(255,255,255,0)");
     }) 
     $('#volumeOnBtn').click(()=>{

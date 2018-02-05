@@ -144,7 +144,8 @@ html {
     
 }
 .whiteRect h1{
-    box-sizing: border-box;
+    
+    margin-left: 2vw;
     position: relative;
     top: 50%;
     -ms-transform: translateY(-50%);
@@ -159,8 +160,11 @@ html {
     
     border: 3px solid rgba(255,255,255,0);  
     margin-bottom: -3px;
+    
 }
-
+.whiteRect>h1>span{
+    color: rgba(255,255,255,0)
+}
 #leftRandomTextBox1{
     position: absolute;
     top: 5%;
