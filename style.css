@@ -48,7 +48,8 @@ html {
     transition: 0.4s;
     position: absolute;
     top: 50%;
-    left: 47%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .right{
     width: 50vw;
@@ -101,7 +102,7 @@ html {
     right: 0;
     background-attachment: fixed;
     background-image: url(pics/goth-woman.jpg);
-    background-position: %,100%;
+    background-position:-200px -60px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -134,7 +135,7 @@ html {
     margin-right: 0;
     background-attachment: fixed;
     background-image: url(pics/2_dead_birds.jpg);
-    background-position: right;
+    background-position: 410px;
     background-repeat: repeat;
     background-size: contain;
     text-align: center;
@@ -151,14 +152,14 @@ html {
     -ms-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
      transform: translateY(-50%);
-    mix-blend-mode: exclusion;
+     mix-blend-mode: exclusion; 
     font-family: Cutive Mono,monospace;
     color: white;
     font-size: calc(1vw + 40px);
     display: inline-block;
     text-align: center;
     
-    border: 3px solid rgba(255,255,255,0);  
+    border: 3px solid black;
     margin-bottom: -3px;
     
 }
@@ -211,7 +212,30 @@ html {
     background-color: white;
 }
 
-
+@media (max-width: 480px) {
+    .blackRect h1{
+        font-size: 31px;
+        
+    } 
+    .whiteRect h1{
+         margin-left: 1vw;
+         font-size: 29px;
+    }
+    .leftHeader{
+        width: 150px;
+         left: calc(50% - 75px);
+        font-size: 27px;
+    }
+    .rightHeader{
+        font-size: 26px;
+    }
+    .whiteRect{
+        background-position: 115px -80px;
+    }
+    .blackRect{
+        background-position: -250px;
+    }
+}
 
 
 
