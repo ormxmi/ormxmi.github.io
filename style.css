@@ -1,244 +1,245 @@
-@import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
-::selection {
-  background: #ffb7b7; /* WebKit/Blink Browsers */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-::-webkit-scrollbar { 
+html, body{
+    
+   
+}
+a{
+    cursor: url(img/cursor.png) 14 14 ,auto;
+
+}
+body{
+    width: 100vw;
+    height: 300vh;
+    background: linear-gradient(to right, #fff, #e6e6e6);
+    overflow-x: hidden;
+    cursor: url(img/cursor.png) 14 14 ,auto;
+}
+body::-webkit-scrollbar { 
     display: none; 
 }
-*{
-    padding: 0;
-    margin: 0;
-}
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-.left{
-    width: 50vw;
-    height: 100vh;
-    transition: 0.3s ;
+.header{
+    
     position: absolute;
-    left: 0;
-    background: white;
+    top: 2%;
+    left: 0%;
+    width: 100vw;
+    height: 20%;
     
 }
-.leftHeader{
-    padding-top: 1px;
-    background-color: black;
+.name-wrapper{
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top:20%;
-    width: 180px;
-    left: calc(50% - 91px);
-    color: white;
-    transition: 0.4s;
-    text-align: center;
+    padding: 3% 0% 0% 3%;
 }
-.leftHeader>mark{
-    background-color: #ffffff;
-}
-.leftHeader>mark>span{
-    background-color: #dd3939;
-}
-.left a{
-    padding: 10px;
-    font-size: 25px;
-    color: black;
-    transition: 0.4s;
+.header-inner-name{
+    font-size: calc(40px + 3vw);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #0A2342;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 30px;
+    transform: rotate(-2deg);
+    transition: 0s;
 }
-.right{
-    width: 50vw;
-    height: 100vh;
-    transition: 0.3s;
+.header-inner-name::after{
+    content: 'Nikola Ormanliev';
+    font-size: calc(40px + 3vw);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #8ACDEA;
     position: absolute;
-    right: 0;
-    background: black;
-    
+    top: -4px;
+    left: -5px;
+    width: 100%;
+    height: 100%;
 }
-.rightHeader{
-    background-color: white;
-    
-    
-    color: black;
-}
-.rghtHdr1{
+
+.nav-container{
     position: absolute;
-    top: 10%;
-    left: 15%;
+    top: 30%;
+    left: 9%;
+    width: 300px;
+    height: 400px;
+    border-top: 5px solid 		#B8B8B8 ;
+    border-right: 5px solid 		#B8B8B8;
+    transform: rotate(-2deg);
 }
-.rghtHdr2{
-    position: absolute;
-    top: 22%;
-    left:50%;
+.nav-ul>li{
+   list-style-type: none;
+   text-align: right;
+   padding-right: 20px;
 }
-.rghtHdr3{
-    position: absolute;
-    top: 37%;
-    left: calc(50% - 76px);
-}
-.right a{
-    padding: 10px;
-    color: white;
-    position: absolute;
-    top: 50%;
-    font-size: 25px;
-    left: 47%;
-}
-.blackRect{
-    
-    z-index: 3;
-    height: 10vh;
-    position: absolute;
-    bottom: 15%;
-    width: 50vw;
-    transition: 0.0s !important;
-    margin-left: 0;
-    position: absolute;
-    right: 0;
-    background-attachment: fixed;
-    background-image: url(pics/goth-woman.jpg);
-    background-position:-200px -60px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.blackRect h1{
-    
-    
-    font-family: Cutive Mono,monospace;
-    color: red;
-    font-size: calc(1vw + 40px);
-    line-height:10vh;
-    text-align: center;
-    margin-left: 0;
-    
-}
-.blackRect h1>span{
-    mix-blend-mode: color;
-}
-.marked{
-    
-}
-.whiteRect{
-    
-    background-color: white;   
-    z-index: 3;
-    height: 10vh;
-    position: absolute;
-    bottom: 15%;
-    width: 50vw;
-    transition: 0.3s;
-    margin-right: 0;
-    background-attachment: fixed;
-    background-image: url(pics/2_dead_birds.jpg);
-    background-position: 410px;
-    background-repeat: repeat;
-    background-size: contain;
-    text-align: center;
-     
-    
-    
-    
-}
-.whiteRect h1{
-    
-    margin-left: 2vw;
+.nav-ul>li>a{
+    font-size: 70px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    color: #8ACDEA;
     position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-     transform: translateY(-50%);
-     mix-blend-mode: exclusion; 
-    font-family: Cutive Mono,monospace;
-    color: white;
-    font-size: calc(1vw + 40px);
+}
+
+#home-btn::before{
     display: inline-block;
-    text-align: center;
-    
-    border: 3px solid black;
-    margin-bottom: -3px;
-    
-}
-.whiteRect>h1>span{
-    color: rgba(255,255,255,0)
-}
-#leftRandomTextBox1{
+    content: '00.';
     position: absolute;
-    top: 5%;
-    left: 15%;
-    color: red;
-    z-index: 1;
-}
-#leftRandomTextBox2{
-    position: absolute;
-    color: red;
-    top:35%;
-    left: 5%;
-    z-index: 1;
-}
-#leftRandomTextBox3{
-    position: absolute;
-    color: red;
-    top:55%;
-    right: 10%;
-    z-index: 1;
-}
-#volumeOn{
-    box-sizing:content-box;
-    position: absolute;
-    font-size: 22px;
-    padding:8px;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-.subLeft{
-    position: absolute;
-    top:100%;
-    width: 50vw;
-    height: 100vh;
+    height: 100%;
+    font-size: 45px;
+    color: black;
     left: 0;
-    background-color: black;
+    line-height: 114px;
+    transform: translateX(-125%);
 }
-.subRight{
+#home-btn::after{
+    display: inline-block;
+    content: 'home';
+    font-size: 70px;
     position: absolute;
-    top: 100%;
-    right: 0;
-    width: 50vw;
-    height: 100vh;
+    left: 3px;
+    top: 2px;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s;
+    color: #0A2342;
+}
+#about-btn::before,  #projects-btn::before,#contact-btn::before{
+    display: inline-block;
+    content: '01.';
+    position: absolute;
+    height: 100%;
+    font-size: 40px;
+    color: #ccc;
+    left: 0;
+    line-height: 114px;
+    transform: translateX(-125%);
+}
+#projects-btn::before{
+    content: '02.';
+}
+#contact-btn::before{
+    content: '03.';
+}
+#home-btn:hover::after{
+    transform: translate(3px, 1px);
+}
+#contact-btn, #about-btn, #projects-btn{
+    transition: 0.1s;
+    border-bottom: 5px solid 		#B8B8B8;
+}
+#contact-btn:hover, #about-btn:hover, #projects-btn:hover{
+    transition: 0.2s;
+    color: #0A2342;
+}
+.lines-container{
+    position: absolute;
+    left: -300px;
+    transform: rotate(-2deg);
+    bottom: 0px;
+}
+.lines-container-2{
+    position: absolute;
+    top: -150px;
+    right: 30vw;
+    transform: rotate(87deg);
+}
+.lines-container-2>.lines{
+    background-color: #8ACDEA !important;
+}
+
+.lines{
+    width: 125px;
+    height: 17px;
+    background-color: #0A2342;
+    position: absolute;
+    left: 0px;
+    transform: translateX(0);
+    transition: 0.7s;
+    animation: moving 6s linear infinite;
+}
+
+.lines:nth-child(1){
+    animation-delay: 1s;
+}
+.lines:nth-child(2){
+    animation-delay: 2s;
+}
+.lines:nth-child(3){
+    animation-delay: 3s;
+}
+.lines:nth-child(4){
+    animation-delay: 4s;
+}
+.lines:nth-child(5){
+    animation-delay: 5s;
+}
+.lines:nth-child(6){
+    animation-delay: 6s;
+}
+.lines:nth-child(7){
+    animation-delay: 7s;
+}
+
+
+
+.main-content{
+    height: 70vh;
+    width: 90%;
+    position: absolute;
+    left: 50%;
+   
+    top: 25%;
     background-color: white;
+   transform: translateX(-50%) rotate(-2deg);
+   transform-origin: 0px 0px ; 
+   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
 }
-
-@media (max-width: 480px) {
-    .blackRect h1{
-        font-size: 31px;
-        
-    } 
-    .whiteRect h1{
-         margin-left: 1vw;
-         font-size: 29px;
+@keyframes moving{
+    from{transform: translateX(0)}
+    to{transform: translateX(2250px)}
+}
+@media screen and (max-width: 950px){
+    .header{
+        height: 21%;      
     }
-    .leftHeader{
-        width: 150px;
-         left: calc(50% - 75px);
-        font-size: 27px;
+    .name-wrapper{
+        max-width: 450px;
     }
-    .rightHeader{
-        font-size: 26px;
-    }
-    .whiteRect{
-        background-position: 115px -80px;
-    }
-    .blackRect{
-        background-position: -250px;
+    
+    .main-content{
+        top: 27%;
     }
 }
-
-
-
-
-
-
+@media screen and (max-width: 450px){
+    .header{
+        height: 23%;     
+    }
+    .main-content{
+        top: 30%;
+    }
+    .name-wrapper{
+        max-width: 350px;
+    }
+    .lines-container-2{
+       
+        right: 10vw;
+      
+    }
+}
+@media screen and (max-width: 400px){
+    .header{
+        height: 27%;   
+    }
+    .main-content{
+        top: 32%;
+    }
+}
