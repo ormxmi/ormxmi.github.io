@@ -1,5 +1,7 @@
 let lines = document.getElementsByClassName("lines");
 let width = window.innerWidth;
+let words = document.getElementsByClassName("span-home");
+let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
 for(let i = 0; i<lines.length; i++){
     lines[i].addEventListener("mousemove",()=>{
         lines[i].style.marginLeft = "100px"; 
@@ -10,6 +12,21 @@ for(let i = 0; i<lines.length; i++){
         },2000)
     })
 }
+let lastWordSpanId = -1,lastColorsId=-1,wordSpanId,colorSpanId;
+setInterval(()=>{
+  wordSpanId = Math.floor(Math.random() * 11);
+  while(wordSpanId==lastWordSpanId) wordSpanId = Math.floor(Math.random() * 11);
+  lastWordSpanId = wordSpanId
+  while(lastColorsId==colorSpanId) colorSpanId =  Math.floor(Math.random() * colors.length);
+  lastColorsId=colorSpanId;
+  words[wordSpanId].style.transitionDuration = "0.2s";
+  words[wordSpanId].style.color = colors[colorSpanId];
+  
+  setTimeout(()=>{
+    words[wordSpanId].style.color = "rgba(255, 255, 255, 0.7)";
+  },2000)
+},2100)
+
 
 window.onscroll = function (e) {
     
