@@ -314,7 +314,7 @@ body::-webkit-scrollbar {
 }
 @media screen and (max-width: 950px){
     .header{
-        height: 21%;      
+        height: 23%;      
     }
     .name-wrapper{
         max-width: 450px;
@@ -340,7 +340,7 @@ body::-webkit-scrollbar {
 }
 @media screen and (max-width: 450px){
     .header{
-        height: 23%;     
+        height: 26%;     
     }
     .main-content{
         top: 30%;
@@ -385,7 +385,7 @@ body::-webkit-scrollbar {
 }
 @media screen and (max-width: 400px){
     .header{
-        height: 27%;   
+        height: 29%;   
     }
     .main-content{
         top: 32%;

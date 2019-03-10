@@ -14,8 +14,8 @@ for(let i = 0; i<lines.length; i++){
 }
 let lastWordSpanId = -1,lastColorsId=-1,wordSpanId,colorSpanId;
 setInterval(()=>{
-  wordSpanId = Math.floor(Math.random() * 11);
-  while(wordSpanId==lastWordSpanId) wordSpanId = Math.floor(Math.random() * 11);
+  wordSpanId = Math.floor(Math.random() * words.length);
+  while(wordSpanId==lastWordSpanId) wordSpanId = Math.floor(Math.random() * words.length);
   lastWordSpanId = wordSpanId
   while(lastColorsId==colorSpanId) colorSpanId =  Math.floor(Math.random() * colors.length);
   lastColorsId=colorSpanId;
