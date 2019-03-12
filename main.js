@@ -31,10 +31,26 @@ setInterval(()=>{
 
 function scrollToWho(){
   window.scrollTo({
-    top: height+26,
+    top: height+50,
     behavior: 'smooth'
   });
+  setTimeout(flashLetters,600);
 }
+function flashLetters(){
+  let letters = document.getElementsByClassName("who-letter");
+  let i = 0,v = 0;
+  var flashing = setInterval(()=>{
+    letters[i].style.display = "block";
+    setTimeout(()=>{
+      letters[v].style.display = "none";
+      v++;
+    },145)
+    i++;
+    if(i>=3) clearInterval(flashing);
+  },155)
+ 
+}
+
 window.onscroll = function (e) {
     
 
@@ -51,7 +67,9 @@ window.onscroll = function (e) {
       if(vertical_position>lastVerticalPos)scrollCount++;
       if(scrollCount==13) scrollToWho();
      lastVerticalPos = vertical_position;
-      document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";
+     if(vertical_position<200){
+      document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";  
+     }
      
 
   }
