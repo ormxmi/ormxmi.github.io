@@ -3,7 +3,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 let words = document.getElementsByClassName("span-home");
 let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
-let scrollCount = 0;let lastVerticalPos = 0;
+let scrollCount = 0;let lastVerticalPos = 0;let opacity = 0;let startUpdatingOpacity = false;
 for(let i = 0; i<lines.length; i++){
     lines[i].addEventListener("mousemove",()=>{
         lines[i].style.marginLeft = "100px"; 
@@ -34,7 +34,19 @@ function scrollToWho(){
     top: height+50,
     behavior: 'smooth'
   });
+  
+
   setTimeout(flashLetters,600);
+  setTimeout(()=>{
+    document.getElementsByClassName("begin-swiping-info")[0].style.opacity = 1;
+    setTimeout((event)=>{
+      document.getElementsByClassName("begin-swiping-info")[0].style.opacity = 0;
+      startUpdatingOpacity = true;
+      document.getElementsByClassName("vertical-line-who-section")[0].style.opacity = 1;
+     
+    },1000)
+    
+  },1700)
 }
 function flashLetters(){
   let letters = document.getElementsByClassName("who-letter");
@@ -73,7 +85,19 @@ window.onscroll = function (e) {
      
 
   }
+  document.getElementsByClassName("who-section")[0].addEventListener("mousemove",(e)=>{
+    if(width<600) return;
 
+    
+      document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.clientX)+"px)";
+      if(startUpdatingOpacity){
+      if(opacity<1){opacity+=0.0035;
+      document.getElementsByClassName("about-me")[0].style.opacity = opacity.toString();
+      document.getElementsByClassName("circle")[0].style.opacity = opacity.toString();
+      document.getElementsByClassName("circle")[1].style.opacity = opacity.toString();
+      }
+  }
+  })
 document.body.addEventListener("mousemove",(e)=>{
   if(width<600) return;
     document.getElementsByClassName("header-inner-name")[0].style.transform = "rotate(-2deg) translate("+e.clientX/50+"px, "+e.clientY/70+"px)";
