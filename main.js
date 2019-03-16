@@ -1,10 +1,11 @@
 let lines = document.getElementsByClassName("lines");
 let width = window.innerWidth;
 let height = window.innerHeight;
+document.getElementsByClassName("big-lines-container")[0].style.height = height+"px";
+document.getElementsByClassName("who-section")[0].style.top = height + "px";
 let words = document.getElementsByClassName("span-home");
 let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
 let scrollCount = 0;let lastVerticalPos = 0;let opacity = 0;let startUpdatingOpacity = false;
-document.documentElement.requestFullscreen();
 
 
 for(let i = 0; i<lines.length; i++){
@@ -121,11 +122,12 @@ document.body.addEventListener("mousemove",(e)=>{
 ////////////////////////////////////
 if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
-   
+   e.preventDefault();
     document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.touches[0].clientX)+"px)";
   }, false);
   
   document.getElementsByClassName("who-section")[0].addEventListener("touchmove",(e)=>{
+    e.preventDefault();
   
     if(startUpdatingOpacity){
       if(opacity<1){
