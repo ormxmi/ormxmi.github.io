@@ -62,9 +62,16 @@ function flashLetters(){
   },155)
  
 }
+document.body.addEventListener("touchmove", (e)=>{
+  if(!startUpdatingOpacity){
+    e.preventDefault();
+    if(window.pageYOffset>0){
+      scrollToWho();
+    }
+  }
+});
 
 window.onscroll = function (e) {
-    
 
       var vertical_position = 0;
       
