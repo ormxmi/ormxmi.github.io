@@ -309,7 +309,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 
 .who-section{
     position: absolute;
-    top: calc(100vh);
+    top: 100vh;
     height: 100vh;
     width: 100vw;
     background-color: rgba(234, 133, 214,0.4);

@@ -4,6 +4,9 @@ let height = window.innerHeight;
 let words = document.getElementsByClassName("span-home");
 let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
 let scrollCount = 0;let lastVerticalPos = 0;let opacity = 0;let startUpdatingOpacity = false;
+document.documentElement.requestFullscreen();
+
+
 for(let i = 0; i<lines.length; i++){
     lines[i].addEventListener("mousemove",()=>{
         lines[i].style.marginLeft = "100px"; 
@@ -30,6 +33,7 @@ setInterval(()=>{
 },2100)
 
 function scrollToWho(){
+
   window.scrollTo({
     top: height,
     behavior: 'smooth'
@@ -64,7 +68,6 @@ function flashLetters(){
 }
 document.body.addEventListener("touchmove", (e)=>{
   if(!startUpdatingOpacity){
-    e.preventDefault();
     if(window.pageYOffset>0){
       scrollToWho();
     }
@@ -118,12 +121,12 @@ document.body.addEventListener("mousemove",(e)=>{
 ////////////////////////////////////
 if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
-    e.preventDefault();
+   
     document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.touches[0].clientX)+"px)";
   }, false);
   
   document.getElementsByClassName("who-section")[0].addEventListener("touchmove",(e)=>{
-    e.preventDefault();
+  
     if(startUpdatingOpacity){
       if(opacity<1){
       opacity+=0.005;
