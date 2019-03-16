@@ -31,7 +31,7 @@ setInterval(()=>{
 
 function scrollToWho(){
   window.scrollTo({
-    top: height+50,
+    top: height,
     behavior: 'smooth'
   });
   
@@ -77,24 +77,29 @@ window.onscroll = function (e) {
 
 
       if(vertical_position>lastVerticalPos)scrollCount++;
-      if(scrollCount==13) scrollToWho();
+      if(scrollCount==1) scrollToWho();
      lastVerticalPos = vertical_position;
      if(vertical_position<200){
       document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";  
      }
-     
-
-  }
+}
   document.getElementsByClassName("who-section")[0].addEventListener("mousemove",(e)=>{
     if(width<600) return;
 
     
       document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.clientX)+"px)";
       if(startUpdatingOpacity){
-      if(opacity<1){opacity+=0.0035;
+      if(opacity<1){
+      opacity+=0.0035;
       document.getElementsByClassName("about-me")[0].style.opacity = opacity.toString();
       document.getElementsByClassName("circle")[0].style.opacity = opacity.toString();
       document.getElementsByClassName("circle")[1].style.opacity = opacity.toString();
+      }
+      else if(opacity>=1){
+        document.getElementsByClassName("vertical-line-who-section")[0].style.transition = "1s ease-in-out";
+        document.getElementsByClassName("about-me-page-number")[0].style.backgroundColor = "#fff";
+
+        document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+width/4+"px)";
       }
   }
   })
@@ -102,3 +107,28 @@ document.body.addEventListener("mousemove",(e)=>{
   if(width<600) return;
     document.getElementsByClassName("header-inner-name")[0].style.transform = "rotate(-2deg) translate("+e.clientX/50+"px, "+e.clientY/70+"px)";
 })
+
+////////////////////////////////////
+if(width<=900){
+  document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
+    document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.touches[0].clientX)+"px)";
+  }, false);
+  
+  document.getElementsByClassName("who-section")[0].addEventListener("touchmove",(e)=>{
+
+    if(startUpdatingOpacity){
+      if(opacity<1){
+      opacity+=0.005;
+      document.getElementsByClassName("about-me")[0].style.opacity = opacity.toString();
+      document.getElementsByClassName("circle")[0].style.opacity = opacity.toString();
+      document.getElementsByClassName("circle")[1].style.opacity = opacity.toString();
+      }
+      else if(opacity>=1){
+        document.getElementsByClassName("vertical-line-who-section")[0].style.transition = "1s ease-in-out";
+
+        document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+width/4+"px)";
+      }
+  }
+  })
+}
+///////////////////////////////////////////////////////
