@@ -118,11 +118,12 @@ document.body.addEventListener("mousemove",(e)=>{
 ////////////////////////////////////
 if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
+    e.preventDefault();
     document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.touches[0].clientX)+"px)";
   }, false);
   
   document.getElementsByClassName("who-section")[0].addEventListener("touchmove",(e)=>{
-
+    e.preventDefault();
     if(startUpdatingOpacity){
       if(opacity<1){
       opacity+=0.005;
