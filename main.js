@@ -77,8 +77,7 @@ document.body.addEventListener("touchmove", (e)=>{
     }
   }
 });
-
- /* window.onscroll = function (e) {
+  window.onscroll = function (e) {
 
       var vertical_position = 0;
       
@@ -104,7 +103,7 @@ document.body.addEventListener("touchmove", (e)=>{
       });
     }
 }
-*/
+
 
 function previewProject(projectId, el){
   switch(projectId){
