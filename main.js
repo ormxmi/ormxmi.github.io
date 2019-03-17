@@ -78,7 +78,7 @@ document.body.addEventListener("touchmove", (e)=>{
   }
 });
 
- window.onscroll = function (e) {
+ /* window.onscroll = function (e) {
 
       var vertical_position = 0;
       
@@ -104,6 +104,31 @@ document.body.addEventListener("touchmove", (e)=>{
       });
     }
 }
+*/
+
+function previewProject(projectId, el){
+  switch(projectId){
+    case 0: document.getElementById("image-preview-inner").src = "img/showcase/chess-preview.gif";
+    break;
+    case 1: document.getElementById("image-preview-inner").src = "img/showcase/home-preview.gif";
+    break;
+    case 2: document.getElementById("image-preview-inner").src = "img/showcase/winxp-preview.gif";
+    break;
+    case 3: document.getElementById("image-preview-inner").src = "img/showcase/art-preview.gif";
+    break;
+  }
+  for(var i = 0; i<document.getElementsByClassName("projects-inner-heading").length; i++){
+    if(document.getElementsByClassName("projects-inner-heading")[i].id==el.id){
+      document.getElementsByClassName("projects-inner-heading")[i].style.color = "white";
+      document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "black";
+    }
+    else{
+      document.getElementsByClassName("projects-inner-heading")[i].style.color = "#aaa";
+      document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "unset";
+    }
+  }
+}
+
 
   document.getElementsByClassName("who-section")[0].addEventListener("mousemove",(e)=>{
     if(width<600) return;
@@ -153,6 +178,9 @@ for(var i = 0 ; i<document.getElementsByClassName("projects-inner-heading").leng
   projectNamesContainerWidth+=document.getElementsByClassName("projects-inner-heading")[i].offsetWidth;
   document.getElementsByClassName("projects-names-container")[0].style.minWidth = projectNamesContainerWidth+"px";
 }
+
+document.getElementsByClassName("projects-inner-heading")[0].style.color = "white";
+document.getElementsByClassName("projects-inner-heading")[0].style.backgroundColor = "black";
 ////////////////////////////////////
 if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {

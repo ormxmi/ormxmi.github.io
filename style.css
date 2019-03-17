@@ -29,7 +29,7 @@ body{
     
 
 }
-a,.projects-names-container{
+a,.projects-names-container,.image-preview{
     cursor: url(img/greenCircle.png) 14 14 ,auto;
 
 
@@ -504,8 +504,18 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     padding: 1.5vh;
     font-weight: 600;
     transition: 0.2s;
-    animation: moving 5.5s linear infinite;
+    animation: moving 5.5s linear infinite;   
+}
+.image-preview{
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
     
+}
+.image-preview>img{
+    height: calc(200px + 15vw);
+    width: calc(200px + 15vw);
+    border: 5px solid black;
 }
 .projects-inner-heading:hover{
     background-color: black;
@@ -642,7 +652,11 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     .nav-container{
         transform: scale(0.85) rotate(-3deg);
     }
-   
+    .image-preview{
+        bottom: 10%;
+        left: 5%;
+        
+    }
 }
 @media screen and (max-width: 400px){
     .header{
