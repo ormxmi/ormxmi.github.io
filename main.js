@@ -78,7 +78,7 @@ document.body.addEventListener("touchmove", (e)=>{
   }
 });
 
-/* window.onscroll = function (e) {
+ window.onscroll = function (e) {
 
       var vertical_position = 0;
       
@@ -104,7 +104,7 @@ document.body.addEventListener("touchmove", (e)=>{
       });
     }
 }
-*/
+
   document.getElementsByClassName("who-section")[0].addEventListener("mousemove",(e)=>{
     if(width<600) return;
 
