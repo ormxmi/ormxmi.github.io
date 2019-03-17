@@ -489,6 +489,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     width: 120%;
     height: 15%;
     user-select: none;
+    overflow: hidden;
     transform: rotate(-11deg);
     border-top: 4px solid black;
     border-bottom: 4px solid black;
@@ -497,12 +498,18 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     position: absolute;
     left: -425px;
     width: 25%;
-    color: black;
+    color: #aaa;
     font-size: 9vh;
     text-align: center;
     padding: 1.5vh;
     font-weight: 600;
+    transition: 0.2s;
     animation: moving 5.5s linear infinite;
+    
+}
+.projects-inner-heading:hover{
+    background-color: black;
+    color: white;
 }
 .projects-inner-heading:nth-child(1){
     animation-delay:0s;
@@ -550,6 +557,14 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     }
     .projects-inner-heading{
         animation: moving-mobile 5.5s linear infinite;
+        font-size: 8vh;
+    }
+    .projects-inner-heading{
+        width: unset;
+    }
+    .projects-inner-heading:hover{
+       background-color: black;
+        color: white;
     }
 }
 @media screen and (max-width: 450px){

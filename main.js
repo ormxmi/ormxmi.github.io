@@ -3,6 +3,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 document.getElementsByClassName("big-lines-container")[0].style.height = height+"px";
 document.getElementsByClassName("who-section")[0].style.top = height + "px";
+
 let words = document.getElementsByClassName("span-home");
 let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
 let scrollCount = 0;let lastVerticalPos = 0;let opacity = 0;let startUpdatingOpacity = false;
@@ -95,6 +96,13 @@ document.body.addEventListener("touchmove", (e)=>{
      if(vertical_position<200){
       document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";  
      }
+     if(pageYOffset>height&&notScrolledToProjects){
+      notScrolledToProjects = false;
+      window.scrollTo({
+        top: projectsSectionYOffset,
+        behavior: 'smooth'
+      });
+    }
 }
 */
   document.getElementsByClassName("who-section")[0].addEventListener("mousemove",(e)=>{
@@ -123,9 +131,11 @@ document.body.addEventListener("mousemove",(e)=>{
 })
 
 // projects below
-if(pageYOffset==height){
 
-}
+let projectsSectionYOffset =  height + document.getElementsByClassName("who-section")[0].offsetHeight;
+document.getElementsByClassName("projects-section")[0].style.top = projectsSectionYOffset +"px";
+
+let notScrolledToProjects = true;
 let whiteFontH1 = false;
 setInterval(()=>{
   if(whiteFontH1){
@@ -148,6 +158,13 @@ if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
    if(opacity<1)e.preventDefault();
     document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.touches[0].clientX)+"px)";
+    if(pageYOffset>height&&notScrolledToProjects){
+      notScrolledToProjects = false;
+      window.scrollTo({
+        top: projectsSectionYOffset,
+        behavior: 'smooth'
+      });
+    }
   }, false);
   
   document.getElementsByClassName("who-section")[0].addEventListener("touchmove",(e)=>{
