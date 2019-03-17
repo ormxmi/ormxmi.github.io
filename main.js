@@ -137,6 +137,12 @@ setInterval(()=>{
     whiteFontH1 = true;
   }
 },1000)
+
+let projectNamesContainerWidth = 0;
+for(var i = 0 ; i<document.getElementsByClassName("projects-inner-heading").length; i++){
+  projectNamesContainerWidth+=document.getElementsByClassName("projects-inner-heading")[i].offsetWidth;
+  document.getElementsByClassName("projects-names-container")[0].style.minWidth = projectNamesContainerWidth+"px";
+}
 ////////////////////////////////////
 if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {

@@ -29,7 +29,7 @@ body{
     
 
 }
-a{
+a,.projects-names-container{
     cursor: url(img/greenCircle.png) 14 14 ,auto;
 
 
@@ -315,7 +315,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     width: 100vw;
     background-color: rgba(234, 133, 214,0.4);
     padding: 5vh;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 .who-section::after{
     content: '';
@@ -406,8 +406,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     position: absolute;
     left: 0;
     top: 0;
-   mix-blend-mode: color-burn;
-
+    mix-blend-mode: color-burn;
 }
 .who-section-page-number>p{
     font-size: calc(35px + 2.55vw);
@@ -424,11 +423,8 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     padding-right: 1vw;
     height: 100%;
     position: absolute;
-    left: 10vw;
-   
-   
-   mix-blend-mode: color-burn;
-   
+    left: 10vw; 
+   mix-blend-mode: color-burn;  
    transition: 2s;
    filter: saturate(0);
 }
@@ -450,7 +446,8 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     top: calc(200vh);
     left: 0;
     background-color:#083110;
-
+    overflow: hidden;
+    
 }
 .projects-section>h1{
     font-size: calc(5vw + 40px);
@@ -485,9 +482,47 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     left: 50%;
     transform: translate(-50%,-50%);
 }
+.projects-names-container{
+    position: absolute;
+    top: calc(60px + 4.5vh);
+    left: -5%;
+    width: 120%;
+    height: 15%;
+    user-select: none;
+    transform: rotate(-11deg);
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+}
+.projects-inner-heading{
+    position: absolute;
+    left: -425px;
+    width: 25%;
+    color: black;
+    font-size: 9vh;
+    text-align: center;
+    padding: 1.5vh;
+    font-weight: 600;
+    animation: moving 5.5s linear infinite;
+}
+.projects-inner-heading:nth-child(1){
+    animation-delay:0s;
+}
+.projects-inner-heading:nth-child(2){
+    animation-delay:1.375s;
+}
+.projects-inner-heading:nth-child(3){
+    animation-delay:2.75s;
+}
+.projects-inner-heading:nth-child(4){
+    animation-delay:4.125s;
+}
 @keyframes moving{
     from{transform: translateX(0)}
     to{transform: translateX(2250px)}
+}
+@keyframes moving-mobile{
+    from{transform: translateX(0)}
+    to{transform: translateX(1150px)}
 }
 @media screen and (max-width: 950px){
     .header{
@@ -513,7 +548,9 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     .nav-ul>li>a::before{
         line-height: 65px !important;
     }
-    
+    .projects-inner-heading{
+        animation: moving-mobile 5.5s linear infinite;
+    }
 }
 @media screen and (max-width: 450px){
     .header{
@@ -590,6 +627,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     .nav-container{
         transform: scale(0.85) rotate(-3deg);
     }
+   
 }
 @media screen and (max-width: 400px){
     .header{
