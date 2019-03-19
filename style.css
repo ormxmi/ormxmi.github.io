@@ -29,7 +29,7 @@ body{
     
 
 }
-a,.projects-names-container,.image-preview{
+a,.projects-names-container,.image-preview-inner-cover>a{
     cursor: url(img/greenCircle.png) 14 14 ,auto;
 
 
@@ -447,7 +447,17 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     left: 0;
     background-color:#083110;
     overflow: hidden;
-    
+    background-image: url('img/showcase/chess-preview.gif');
+    background-size: cover;
+}
+.projects-section::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(8,49,16,0.94);
 }
 .projects-section>h1{
     font-size: calc(5vw + 40px);
@@ -491,6 +501,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     user-select: none;
     overflow: hidden;
     transform: rotate(-11deg);
+    background-color: rgba(0,0,0,0.9);
     border-top: 4px solid black;
     border-bottom: 4px solid black;
 }
@@ -498,7 +509,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     position: absolute;
     left: -425px;
     width: 25%;
-    color: #aaa;
+    color: #666;
     font-size: 9vh;
     text-align: center;
     padding: 1.5vh;
@@ -510,12 +521,37 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     position: absolute;
     bottom: 10%;
     right: 10%;
-    
+    height: calc(200px + 15vw);
+    width: calc(200px + 15vw);
 }
 .image-preview>img{
     height: calc(200px + 15vw);
     width: calc(200px + 15vw);
     border: 5px solid black;
+}
+.image-preview-inner-cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.85);
+    opacity: 0;
+    transition: 0.3s;
+}
+.image-preview-inner-cover>a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: calc(30px + 2.5vw);
+    color: #bbb;
+    text-decoration: underline;
+    display: none;
+    transition: 0.2s;
+}
+.image-preview-inner-cover>a:hover{
+    color: #fff;
 }
 .projects-inner-heading:hover{
     background-color: black;
@@ -656,6 +692,9 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
         bottom: 10%;
         left: 5%;
         
+    }
+    .who-letter-o{
+        bottom: 5%;
     }
 }
 @media screen and (max-width: 400px){

@@ -3,7 +3,9 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 document.getElementsByClassName("big-lines-container")[0].style.height = height+"px";
 document.getElementsByClassName("who-section")[0].style.top = height + "px";
-
+// detect if there is a mouse 
+let hasMouse = false;
+window.onmousemove = ()=>{hasMouse = true;}
 let words = document.getElementsByClassName("span-home");
 let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
 let scrollCount = 0;let lastVerticalPos = 0;let opacity = 0;let startUpdatingOpacity = false;
@@ -77,7 +79,7 @@ document.body.addEventListener("touchmove", (e)=>{
     }
   }
 });
-  window.onscroll = function (e) {
+window.onscroll = function (e) {
 
       var vertical_position = 0;
       
@@ -108,21 +110,27 @@ document.body.addEventListener("touchmove", (e)=>{
 function previewProject(projectId, el){
   switch(projectId){
     case 0: document.getElementById("image-preview-inner").src = "img/showcase/chess-preview.gif";
+            document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/chess-preview.gif')";
     break;
     case 1: document.getElementById("image-preview-inner").src = "img/showcase/home-preview.gif";
+            document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/home-preview.gif')";
     break;
     case 2: document.getElementById("image-preview-inner").src = "img/showcase/winxp-preview.gif";
+            document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/winxp-preview.gif')";
     break;
     case 3: document.getElementById("image-preview-inner").src = "img/showcase/art-preview.gif";
+            document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/art-preview.gif')";
     break;
   }
   for(var i = 0; i<document.getElementsByClassName("projects-inner-heading").length; i++){
     if(document.getElementsByClassName("projects-inner-heading")[i].id==el.id){
       document.getElementsByClassName("projects-inner-heading")[i].style.color = "white";
       document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "black";
+      document.getElementById("image-preview-inner-cover-anchor").href = "https://ormxmi.github.io/"+el.id+"/";
+      
     }
     else{
-      document.getElementsByClassName("projects-inner-heading")[i].style.color = "#aaa";
+      document.getElementsByClassName("projects-inner-heading")[i].style.color = "#666";
       document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "unset";
     }
   }
@@ -154,8 +162,7 @@ document.body.addEventListener("mousemove",(e)=>{
     document.getElementsByClassName("header-inner-name")[0].style.transform = "rotate(-2deg) translate("+e.clientX/50+"px, "+e.clientY/70+"px)";
 })
 
-// projects below
-
+// projects section below
 let projectsSectionYOffset =  height + document.getElementsByClassName("who-section")[0].offsetHeight;
 document.getElementsByClassName("projects-section")[0].style.top = projectsSectionYOffset +"px";
 
@@ -180,6 +187,21 @@ for(var i = 0 ; i<document.getElementsByClassName("projects-inner-heading").leng
 
 document.getElementsByClassName("projects-inner-heading")[0].style.color = "white";
 document.getElementsByClassName("projects-inner-heading")[0].style.backgroundColor = "black";
+
+document.getElementsByClassName("image-preview")[0].addEventListener("mouseenter",()=>{
+  document.getElementsByClassName("image-preview-inner-cover")[0].style.opacity = "1";
+  setTimeout(()=>{
+    document.getElementById("image-preview-inner-cover-anchor").style.display = "inline-block";
+  },100)
+  
+})
+document.getElementsByClassName("image-preview")[0].addEventListener("mouseleave",()=>{
+  document.getElementsByClassName("image-preview-inner-cover")[0].style.opacity = "0";
+  document.getElementById("image-preview-inner-cover-anchor").style.display = "none";
+})
+
+
+
 ////////////////////////////////////
 if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
