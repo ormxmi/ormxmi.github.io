@@ -78,8 +78,8 @@ document.body.addEventListener("touchmove", (e)=>{
       scrollToWho();
     }
   }
-});
-window.onscroll = function (e) {
+});/*
+ window.onscroll = function (e) {
 
       var vertical_position = 0;
       
@@ -97,7 +97,7 @@ window.onscroll = function (e) {
      if(vertical_position<200){
       document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";  
      }
-     if(pageYOffset>height&&notScrolledToProjects){
+     if(pageYOffset>height+10&&notScrolledToProjects){
       notScrolledToProjects = false;
       window.scrollTo({
         top: projectsSectionYOffset,
@@ -105,7 +105,7 @@ window.onscroll = function (e) {
       });
     }
 }
-
+*/
 
 function previewProject(projectId, el){
   switch(projectId){
@@ -125,12 +125,12 @@ function previewProject(projectId, el){
   for(var i = 0; i<document.getElementsByClassName("projects-inner-heading").length; i++){
     if(document.getElementsByClassName("projects-inner-heading")[i].id==el.id){
       document.getElementsByClassName("projects-inner-heading")[i].style.color = "white";
-      document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "black";
+      document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "rgba(0,0,111,1)";
       document.getElementById("image-preview-inner-cover-anchor").href = "https://ormxmi.github.io/"+el.id+"/";
       
     }
     else{
-      document.getElementsByClassName("projects-inner-heading")[i].style.color = "#666";
+      document.getElementsByClassName("projects-inner-heading")[i].style.color = "rgba(255,255,255,0.7)";
       document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "unset";
     }
   }
@@ -186,7 +186,7 @@ for(var i = 0 ; i<document.getElementsByClassName("projects-inner-heading").leng
 }
 
 document.getElementsByClassName("projects-inner-heading")[0].style.color = "white";
-document.getElementsByClassName("projects-inner-heading")[0].style.backgroundColor = "black";
+document.getElementsByClassName("projects-inner-heading")[0].style.backgroundColor = "rgba(0,0,111,1)";
 
 document.getElementsByClassName("image-preview")[0].addEventListener("mouseenter",()=>{
   document.getElementsByClassName("image-preview-inner-cover")[0].style.opacity = "1";

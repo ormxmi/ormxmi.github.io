@@ -23,11 +23,16 @@ body{
     overflow-x: hidden;
     width: 100%;
     height: 300%;
-    background: linear-gradient(to right, #fff, rgba(0, 111, 145,0.5));
-    
+   /* background: linear-gradient(to right, #fff, rgba(0, 111, 145,0.5));*/
+    background: linear-gradient(113deg, #ffffff, #72c0ff);
+    background-size: 300% 300%;
+    animation: bg-animation 10s ease infinite;
     cursor: url(img/cursor.png) 14 14 ,auto;
     
 
+}
+.projects-section{
+    cursor: url(img/cursor-white.png) 14 14 ,auto;
 }
 a,.projects-names-container,.image-preview-inner-cover>a{
     cursor: url(img/greenCircle.png) 14 14 ,auto;
@@ -88,8 +93,8 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     top: 30%;
     left: 9%;
     
-    border-top: 5px solid 		#B8B8B8 ;
-    border-right: 5px solid 		#B8B8B8;
+    border-top: 4px solid 	#aaa ;
+    border-right: 4px solid 		#aaa;
     transform: rotate(-2deg);
 }
 .nav-ul>li{
@@ -132,12 +137,13 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     display: inline-block;
     content: '01.';
     position: absolute;
+    left: 0;
     height: 100%;
     font-size: var(--navButtonsBeforeVw);
-    color: #ccc;
-    left: 0;
+    color: #666;
     line-height: 6vw;
     transform: translateX(-125%);
+    
 }
 
 .home-text-container{
@@ -237,7 +243,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 }
 #contact-btn, #about-btn, #projects-btn{
     transition: 0.1s;
-    border-bottom: 5px solid 		#B8B8B8;
+    border-bottom: 4px solid	#aaa;
 }
 #contact-btn:hover, #about-btn:hover, #projects-btn:hover{
     transition: 0.2s;
@@ -249,20 +255,12 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     transform: rotate(-2deg);
     bottom: 14px;
     mix-blend-mode: color-burn;
-}
-
-
-.lines{
-    width: 125px;
-    height: 17px;
     background-color: #0A2342;
-    position: absolute;
-    left: 0px;
-    transform: translateX(0);
-    transition: 0.7s;
-    animation: moving 6s linear infinite;
-    
+    height: 17px;
+    width: 65vw;
 }
+
+
 
 .lines:nth-child(1){
     animation-delay: 1s;
@@ -457,13 +455,13 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(8,49,16,0.94);
+    background-color: rgba(0,0,30,0.94);;
 }
 .projects-section>h1{
     font-size: calc(5vw + 40px);
     position: relative;
-    color: black;
-    mix-blend-mode: luminosity;
+    color:  rgba(0,0,103,0.94);;
+    mix-blend-mode: lighten;
     margin: 5px 0 0 15px;
 }
 .projects-section>h1::after{
@@ -480,12 +478,12 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     position: absolute;
     right: 0;
     top: 0;
-   mix-blend-mode: color-burn;
+    mix-blend-mode: color-dodge;
 }
 .projects-section-page-number>p{
     font-size: calc(35px + 2.55vw);
     color: white;
-    background-color: blue;
+    background-color: rgba(0,0,255,0.7);
     padding: 4px;
     position: absolute;
     top: 50%;
@@ -502,14 +500,15 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     overflow: hidden;
     transform: rotate(-11deg);
     background-color: rgba(0,0,0,0.9);
-    border-top: 4px solid black;
-    border-bottom: 4px solid black;
+    border-top: 4px solid rgba(0,0,111,1);
+    border-bottom: 4px solid rgba(0,0,111,1);
 }
+
 .projects-inner-heading{
     position: absolute;
     left: -425px;
     width: 25%;
-    color: #666;
+    color: rgba(255,255,255,0.7);
     font-size: 9vh;
     text-align: center;
     padding: 1.5vh;
@@ -545,13 +544,37 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: calc(30px + 2.5vw);
-    color: #bbb;
+    color: rgba(255,255,255,0.7);
     text-decoration: underline;
     display: none;
     transition: 0.2s;
 }
+.technologies-used{
+    position: absolute;
+    bottom: 25%;
+    left: 25%;
+    font-size: 9vh;
+    text-align: center;
+    mix-blend-mode: color-dodge;
+    background-color: rgba(0,0,255,0.9);
+    color: white;
+    border-bottom: 5px solid rgba(0,0,255,0.9);; 
+     
+}
+.technologies-used::before{
+    position: absolute;
+    content: 'technologies used:';
+    border-top: 5px solid rgba(0,0,255,0.9);; 
+    font-size: 9vh;
+    background-color: rgba(0,0,255,0.7);
+    transform: translate(-42%, -100%);
+    white-space: nowrap;
+    left: 0;
+}
+
 .image-preview-inner-cover>a:hover{
     color: #fff;
+    
 }
 .projects-inner-heading:hover{
     background-color: black;
@@ -569,6 +592,26 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 .projects-inner-heading:nth-child(4){
     animation-delay:4.125s;
 }
+
+.contact-section{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: calc(300vh);
+    left: 0;
+    overflow: hidden;
+    background-image: url('img/showcase/NCRJI.gif');
+    background-size: cover;
+}
+.contact-section::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);;
+}
 @keyframes moving{
     from{transform: translateX(0)}
     to{transform: translateX(2250px)}
@@ -577,6 +620,12 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     from{transform: translateX(0)}
     to{transform: translateX(1150px)}
 }
+@keyframes bg-animation { 
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}
+
 @media screen and (max-width: 950px){
     .header{
         height: 23%;      
@@ -611,6 +660,9 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     .projects-inner-heading:hover{
        background-color: black;
         color: white;
+    }
+    .technologies-used{
+        display: none;
     }
 }
 @media screen and (max-width: 450px){
