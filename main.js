@@ -9,6 +9,8 @@ window.onmousemove = ()=>{hasMouse = true;}
 let words = document.getElementsByClassName("span-home");
 let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
 let scrollCount = 0;let lastVerticalPos = 0;let opacity = 0;let startUpdatingOpacity = false;
+let currentlyScrolling = false;
+let bodyRect = document.body.getBoundingClientRect();
 
 
 for(let i = 0; i<lines.length; i++){
@@ -35,9 +37,34 @@ setInterval(()=>{
     words[wordSpanId].style.color = "rgba(255, 255, 255, 0.7)";
   },2000)
 },2100)
+
 function scrollBody(n){
+  currentlyScrolling = true;
   if(n==1)scrollToWho();
+  if(n==2)scrollToProjects();
+  if(n==3)scrollToContact();
+  setTimeout(()=>{
+    currentlyScrolling = false;
+  },1500)
 }
+function scrollToContact(){
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  });
+  setTimeout(scrolledToContactFn,400);
+  
+
+}
+function scrollToProjects(){
+  
+
+  window.scrollTo({
+    top: height*2,
+    behavior: 'smooth'
+  });
+}
+
 function scrollToWho(){
 
   window.scrollTo({
@@ -78,11 +105,9 @@ document.body.addEventListener("touchmove", (e)=>{
       scrollToWho();
     }
   }
-});/*
+});
  window.onscroll = function (e) {
-
       var vertical_position = 0;
-      
       if (pageYOffset)//usual
         vertical_position = pageYOffset;
       else if (document.documentElement.clientHeight)//ie
@@ -92,20 +117,24 @@ document.body.addEventListener("touchmove", (e)=>{
 
 
       if(vertical_position>lastVerticalPos)scrollCount++;
-      if(scrollCount==1) scrollToWho();
-     lastVerticalPos = vertical_position;
+      if(scrollCount==1&&(!currentlyScrolling)) scrollToWho();
+
      if(vertical_position<200){
       document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";  
      }
-     if(pageYOffset>height+10&&notScrolledToProjects){
+     if(pageYOffset>height+10&&notScrolledToProjects&&(!currentlyScrolling)){
       notScrolledToProjects = false;
       window.scrollTo({
         top: projectsSectionYOffset,
         behavior: 'smooth'
       });
     }
+    else if(pageYOffset>height*2+100&&notScrolledToContact&&(!currentlyScrolling)){
+      notScrolledToContact = false;
+      scrollToContact();
+    }
 }
-*/
+
 
 function previewProject(projectId, el){
   switch(projectId){
@@ -200,8 +229,15 @@ document.getElementsByClassName("image-preview")[0].addEventListener("mouseleave
   document.getElementById("image-preview-inner-cover-anchor").style.display = "none";
 })
 
+// contact section below
 
-
+let notScrolledToContact = true;
+function scrolledToContactFn(){
+  document.getElementsByClassName("contact-header")[0].style.opacity = "1";
+  document.getElementsByClassName("contact-header")[0].style.padding = "0px 11px";
+  document.getElementsByClassName("contact-header")[0].style.filter = " hue-rotate(180deg)";
+  
+}
 ////////////////////////////////////
 if(width<=900){
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
