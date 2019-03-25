@@ -1,29 +1,76 @@
-let lines = document.getElementsByClassName("lines");
+
 let width = window.innerWidth;
 let height = window.innerHeight;
 document.getElementsByClassName("big-lines-container")[0].style.height = height+"px";
-document.getElementsByClassName("who-section")[0].style.top = height + "px";
-// detect if there is a mouse 
+let lastWordSpanId = -1,lastColorsId=-1,wordSpanId,colorSpanId;
 let hasMouse = false;
-window.onmousemove = ()=>{hasMouse = true;}
+var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+let notScrolledToWho = true, notScrolledToProjects = true,notScrolledToContact = true;
 let words = document.getElementsByClassName("span-home");
 let colors = ['rgba(244, 185, 66,0.7)','rgba(65, 83, 244,0.7)','rgba(65, 244, 106,0.7)'];
 let scrollCount = 0;let lastVerticalPos = 0;let opacity = 0;let startUpdatingOpacity = false;
 let currentlyScrolling = false;
 let bodyRect = document.body.getBoundingClientRect();
+let moving = false, flashedLetters = false;
 
-
-for(let i = 0; i<lines.length; i++){
-    lines[i].addEventListener("mousemove",()=>{
-        lines[i].style.marginLeft = "100px"; 
-        setTimeout(()=>{
-          
-            lines[i].style.marginLeft = "0px"; 
-           
-        },2000)
-    })
+if(!touchDevice){
+  console.log("hey");
+  window.onscroll = function (e) {
+   onScrollFn(e.target);
+  }
 }
-let lastWordSpanId = -1,lastColorsId=-1,wordSpanId,colorSpanId;
+function onScrollFn(el){
+  console.log("call")
+  
+  if(currentlyScrolling) return;
+  var vertical_position = 0;
+  if (pageYOffset)//usual
+    vertical_position = pageYOffset;
+  else if (document.documentElement.clientHeight)//ie
+    vertical_position = document.documentElement.scrollTop;
+  else if (document.body)//ie quirks
+    vertical_position = document.body.scrollTop;
+ if(vertical_position>=200+window.innerHeight*2&&(notScrolledToContact)){
+  notScrolledToContact=false;
+  moving=true;
+  setTimeout(()=>{
+    moving=false;
+  },1000)
+  scrollToContact();
+ 
+ }
+ else if(vertical_position>=300+window.innerHeight&&(notScrolledToProjects)){
+  notScrolledToProjects=false;
+  moving=true;
+  setTimeout(()=>{
+    moving=false;
+  },1000)
+  scrollToProjects();
+
+ }
+ else if(vertical_position>=100&&(notScrolledToWho)){
+  notScrolledToWho = false;
+  moving=true;
+  setTimeout(()=>{
+    
+    moving=false;
+  },1000)
+  scrollToWho();
+ }
+ else if(vertical_position<100){
+  document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";  
+ }
+
+}
+
+
+  document.body.addEventListener('touchmove',(e)=>{
+    if(!moving){
+      onScrollFn(e);
+    }
+  });
+
+
 setInterval(()=>{
   wordSpanId = Math.floor(Math.random() * words.length);
   while(wordSpanId==lastWordSpanId) wordSpanId = Math.floor(Math.random() * words.length);
@@ -48,29 +95,33 @@ function scrollBody(n){
   },1500)
 }
 function scrollToContact(){
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: 'smooth'
+  $(function(){
+    $([document.documentElement, document.body]).stop().animate({
+    scrollTop: $(".contact-section").offset().top
+    }, 1000);
   });
-  setTimeout(scrolledToContactFn,400);
+  setTimeout(scrolledToContactFn,1100);
   
 
 }
 function scrollToProjects(){
   
 
-  window.scrollTo({
-    top: height*2,
-    behavior: 'smooth'
+  $(function(){
+    $([document.documentElement, document.body]).stop().animate({
+    scrollTop: $(".projects-section").offset().top
+    }, 1000);
   });
 }
 
 function scrollToWho(){
 
-  window.scrollTo({
-    top: height,
-    behavior: 'smooth'
+  $(function(){
+    $([document.documentElement, document.body]).stop().animate({
+    scrollTop: $(".who-section").offset().top
+    }, 1000);
   });
+  
   
 
   setTimeout(flashLetters,600);
@@ -86,6 +137,8 @@ function scrollToWho(){
   },1700)
 }
 function flashLetters(){
+  if(flashedLetters) return;
+  flashLetters = true;
   let letters = document.getElementsByClassName("who-letter");
   let i = 0,v = 0;
   var flashing = setInterval(()=>{
@@ -99,55 +152,18 @@ function flashLetters(){
   },155)
  
 }
-document.body.addEventListener("touchmove", (e)=>{
-  if(!startUpdatingOpacity){
-    if(window.pageYOffset>0){
-      scrollToWho();
-    }
-  }
-});
- window.onscroll = function (e) {
-      var vertical_position = 0;
-      if (pageYOffset)//usual
-        vertical_position = pageYOffset;
-      else if (document.documentElement.clientHeight)//ie
-        vertical_position = document.documentElement.scrollTop;
-      else if (document.body)//ie quirks
-        vertical_position = document.body.scrollTop;
-
-
-      if(vertical_position>lastVerticalPos)scrollCount++;
-      if(scrollCount==1&&(!currentlyScrolling)) scrollToWho();
-
-     if(vertical_position<200){
-      document.getElementsByClassName("lines-container")[0].style.transform = "rotate(-3deg) translateX("+(vertical_position)+"px)";  
-     }
-     if(pageYOffset>height+10&&notScrolledToProjects&&(!currentlyScrolling)){
-      notScrolledToProjects = false;
-      window.scrollTo({
-        top: projectsSectionYOffset,
-        behavior: 'smooth'
-      });
-    }
-    else if(pageYOffset>height*2+100&&notScrolledToContact&&(!currentlyScrolling)){
-      notScrolledToContact = false;
-      scrollToContact();
-    }
-}
-
-
 function previewProject(projectId, el){
   switch(projectId){
-    case 0: document.getElementById("image-preview-inner").src = "img/showcase/chess-preview.gif";
+    case 0: document.getElementsByClassName("image-preview")[0].style.backgroundImage = "url('img/showcase/chess-preview.gif')";
             document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/chess-preview.gif')";
     break;
-    case 1: document.getElementById("image-preview-inner").src = "img/showcase/home-preview.gif";
+    case 1: document.getElementsByClassName("image-preview")[0].style.backgroundImage = "url('img/showcase/home-preview.gif')";
             document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/home-preview.gif')";
     break;
-    case 2: document.getElementById("image-preview-inner").src = "img/showcase/winxp-preview.gif";
+    case 2: document.getElementsByClassName("image-preview")[0].style.backgroundImage = "url('img/showcase/winxp-preview.gif')";
             document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/winxp-preview.gif')";
     break;
-    case 3: document.getElementById("image-preview-inner").src = "img/showcase/art-preview.gif";
+    case 3: document.getElementsByClassName("image-preview")[0].style.backgroundImage = "url('img/showcase/art-preview.gif')";
             document.getElementsByClassName("projects-section")[0].style.backgroundImage = "url('img/showcase/art-preview.gif')";
     break;
   }
@@ -192,10 +208,8 @@ document.body.addEventListener("mousemove",(e)=>{
 })
 
 // projects section below
-let projectsSectionYOffset =  height + document.getElementsByClassName("who-section")[0].offsetHeight;
-document.getElementsByClassName("projects-section")[0].style.top = projectsSectionYOffset +"px";
 
-let notScrolledToProjects = true;
+
 let whiteFontH1 = false;
 setInterval(()=>{
   if(whiteFontH1){
@@ -231,7 +245,7 @@ document.getElementsByClassName("image-preview")[0].addEventListener("mouseleave
 
 // contact section below
 
-let notScrolledToContact = true;
+
 function scrolledToContactFn(){
   document.getElementsByClassName("contact-header")[0].style.opacity = "1";
   document.getElementsByClassName("contact-header")[0].style.padding = "0px 11px";
@@ -239,17 +253,11 @@ function scrolledToContactFn(){
   
 }
 ////////////////////////////////////
-if(width<=900){
+
   document.getElementsByClassName("who-section")[0].addEventListener('touchmove', function(e) {
    if(opacity<1)e.preventDefault();
     document.getElementsByClassName("vertical-line-who-section")[0].style.transform = "translateX("+(e.touches[0].clientX)+"px)";
-    if(pageYOffset>height&&notScrolledToProjects){
-      notScrolledToProjects = false;
-      window.scrollTo({
-        top: projectsSectionYOffset,
-        behavior: 'smooth'
-      });
-    }
+   
   }, false);
   
   document.getElementsByClassName("who-section")[0].addEventListener("touchmove",(e)=>{
@@ -257,7 +265,7 @@ if(width<=900){
   
     if(startUpdatingOpacity){
       if(opacity<1){
-      opacity+=0.005;
+      opacity+=0.015;
       document.getElementsByClassName("about-me")[0].style.opacity = opacity.toString();
       document.getElementsByClassName("circle")[0].style.opacity = opacity.toString();
       document.getElementsByClassName("circle")[1].style.opacity = opacity.toString();
@@ -269,5 +277,5 @@ if(width<=900){
       }
   }
   })
-}
-///////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////

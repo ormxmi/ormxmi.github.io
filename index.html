@@ -10,87 +10,90 @@
     <link rel="stylesheet" href="style.css">
     
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
 </head>
-<body>
-   <div class="header">
-       <div class="name-wrapper">
-        <p class="header-inner-name">Nikola Ormanliev</p>
+<body class="container">
+    <section class="home-section">
+
+        <div class="header">
+            <div class="name-wrapper">
+                <p class="header-inner-name">Nikola Ormanliev</p>
+            </div>
+            <div class="lines-container">  
+            </div>
         </div>
-       <div class="lines-container">
-        
-       </div>
-   </div>
-   <div class="big-lines-container">
-    <div class="yellow-div"></div>
-    <div class="purple-div"></div>
-    <div class="green-div"></div>
-    <div class="diag-line"></div>
-   </div>
-   
-   
-   <div class="nav-container">
-       <ul class="nav-ul">
-            <li><a href="#" id="home-btn">home</a></li>
-            <li><a href="javascript:scrollBody(1);" id="about-btn">about</a></li>
-            <li><a href="javascript:scrollBody(2);" id="projects-btn">projects</a></li>
-            <li><a href="javascript:scrollBody(3);" id="contact-btn">contact</a></li>
-       </ul>
 
-     
-        
-   </div>
-   <div class="home-text-container">
-       
-    <p>'<span class="span-home">U</span><span class="span-home">X</span><span class="span-home">/</span><span class="span-home">U</span><span class="span-home">I</span> <span class="span-home">d</span><span class="span-home">e</span><span class="span-home">s</span><span class="span-home">i</span><span class="span-home">g</span><span class="span-home">n</span><span class="span-home">e</span><span class="span-home">r</span>'</p>
-
-    <div class="home-text-inner"><p>&nbsp;displaying good&nbsp;</p></div>
- 
-</div>
-<div class="cross"></div>
+        <div class="big-lines-container">
+            <div class="yellow-div"></div>
+            <div class="purple-div"></div>
+            <div class="green-div"></div>
+            <div class="diag-line"></div>
+        </div>
    
-       
-   <section class="who-section">
-       <div class="begin-swiping-info">swipe&nbsp;left&nbsp;and&nbsp;right</div>
-       <div class="vertical-line-who-section"></div>
+   
+        <div class="nav-container">
+            <ul class="nav-ul">
+                    <li><a href="#" id="home-btn">home</a></li>
+                    <li><a href="javascript:scrollBody(1);" id="about-btn">about</a></li>
+                    <li><a href="javascript:scrollBody(2);" id="projects-btn">projects</a></li>
+                    <li><a href="javascript:scrollBody(3);" id="contact-btn">contact</a></li>
+            </ul>
+        </div>
+
+        <div class="home-text-container">
+            <p>'<span class="span-home">U</span><span class="span-home">X</span><span class="span-home">/</span><span class="span-home">U</span><span class="span-home">I</span> <span class="span-home">d</span><span class="span-home">e</span><span class="span-home">s</span><span class="span-home">i</span><span class="span-home">g</span><span class="span-home">n</span><span class="span-home">e</span><span class="span-home">r</span>'</p>
+            <div class="home-text-inner"><p>&nbsp;displaying good&nbsp;</p></div>
+        </div>
+    </section>
+
+    <section class="who-section">
+        <div class="begin-swiping-info">swipe&nbsp;left&nbsp;and&nbsp;right</div>
+        <div class="vertical-line-who-section"></div>
         <span class="circle circle-1"></span>
         <span class="circle circle-2"></span>
-       <div class="who-letter who-letter-w">W</div>
-       <div class="who-letter who-letter-h">H</div>
-       <div class="who-letter who-letter-o">O</div>
-       <div class="who-section-page-number" ><p>01</p></div>
-       <div class="about-me" style="opacity: 0; background-color: white" ><p>lorem ipsum dolor sit amet consectetur adipisicing elit. <span style="background-color: blueviolet; color: whitesmoke">vajen tekst blah blah blah</span> aliquid molestias veniam voluptas officiis blanditiis. Doloribus unde quasi eius molestiae dolore nostrum <span style="background-color: blueviolet; color: whitesmoke">oshte vajen tekst khhh</span> laudantium optio quo praesentium hic.</p></div>
+        <div class="who-letter who-letter-w">W</div>
+        <div class="who-letter who-letter-h">H</div>
+        <div class="who-letter who-letter-o">O</div>
+        <div class="who-section-page-number" ><p>01</p></div>
+        <div class="about-me" style="opacity: 0; background-color: white" ><p>dolor sit amet. <span style="background-color: blueviolet; color: whitesmoke">determined 17 years old student</span> aliquid molestias veniam voluptas blanditiis <span style="background-color: blueviolet; color: whitesmoke">looking for opportunities to visualise the thoughts I encounter</span> Doloribus unde quasi eius molestiae dolore nostrum  <span style="background-color: blueviolet; color: whitesmoke">constantly thriving on the challenge to improve my skills</span> amet adipisicing elit</p></div>
    </section>
+   
    <section class="projects-section">
-    <h1 class="projects-section-heading">projects</h1>
-    <div class="projects-section-page-number" ><p>02</p></div>
-    <div class="projects-names-container">
-        <div class="projects-inner-heading" id="chess" onmouseover="previewProject(0, this)">CHESS</div>
-        <div class="projects-inner-heading" id="home" onmouseover="previewProject(1, this)">HOME</div>
-        <div class="projects-inner-heading" id="math-payments" onmouseover="previewProject(2, this)">WIN&nbsp;XP</div>
-        <div class="projects-inner-heading" id="annamaria"onmouseover="previewProject(3, this)">ART&nbsp;SITE</div>
-    </div> 
-    <div class="image-preview">
-        <img id="image-preview-inner" src="img/showcase/chess-preview.gif" alt="CHESS">
-        <div class="image-preview-inner-cover"><a href="https://ormxmi.github.io/chess" target="_blank" id="image-preview-inner-cover-anchor">go&nbsp;to&nbsp;site</a></div>
-    </div> 
-    <div class="technologies-used"><p>html<span style="background-color: white; color: grey">/</span>css<span style="background-color: white; color: grey">/</span>js</p></div>
+        <h1 class="projects-section-heading">projects</h1>
+        <div class="projects-section-page-number" ><p>02</p></div>
+        <div class="projects-names-container">
+            <div class="projects-inner-heading" id="chess" onmouseover="previewProject(0, this)">CHESS</div>
+            <div class="projects-inner-heading" id="home" onmouseover="previewProject(1, this)">HOME</div>
+            <div class="projects-inner-heading" id="math-payments" onmouseover="previewProject(2, this)">WIN&nbsp;XP</div>
+            <div class="projects-inner-heading" id="annamaria"onmouseover="previewProject(3, this)">ART&nbsp;SITE</div>
+        </div> 
+        <div class="image-preview">
+            
+            <div class="image-preview-inner-cover"><a href="https://ormxmi.github.io/chess" target="_blank" id="image-preview-inner-cover-anchor">go&nbsp;to&nbsp;site</a></div>
+        </div> 
+        <div class="technologies-used"><p>html<span style="background-color: white; color: grey">/</span>css<span style="background-color: white; color: grey">/</span>js</p></div>
    </section>
+
    <section class="contact-section">
-       <h1 class="contact-header">contact</h1>
-       <div class="borders-container">
-        <div class="big-lines-container">
-            <div class="yellow-div borders"></div>
-            <div class="purple-div borders"></div>
-            <div class="green-div borders"></div>
-            <div class="diag-line borders"></div>
-           </div>
+        <div class="projects-section-page-number contact-section-page-number" ><p>03</p></div>
+        <h1 class="contact-header">contact</h1>
+        
+        <div class="borders-container">
+            <div class="big-lines-container">
+                <div class="yellow-div borders"></div>
+                <div class="purple-div borders"></div>
+                <div class="green-div borders"></div>
+                <div class="diag-line borders"></div>
+            </div>
        </div>
-       <a class="contact-links contact-links-email"><span>></span>&nbsp;email</a>
-       <a class="contact-links contact-links-instagram"><span>></span>&nbsp;instagram</a>  
-       
-       
+       <a class="contact-links contact-links-email" href="mailto:nikolaormanliev@schoolmath.eu" target="_top"><span>></span>&nbsp;email</a>
+       <a class="contact-links contact-links-instagram" href="https://www.instagram.com/o.rm.rm.i/" target="_blank"><span>></span>&nbsp;instagram</a>  
+
    </section>
+ 
     <script src="main.js"></script>
+    
+
 </body>
 </html>

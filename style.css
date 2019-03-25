@@ -21,8 +21,6 @@ html{
 body{
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
-    width: 100%;
-    height: 300%;
    /* background: linear-gradient(to right, #fff, rgba(0, 111, 145,0.5));*/
     background: linear-gradient(113deg, #ffffff, #72c0ff);
     background-size: 300% 300%;
@@ -42,6 +40,21 @@ a,.projects-names-container,.image-preview-inner-cover>a,.contact-header{
 }
 body::-webkit-scrollbar,.header::-webkit-scrollbar { 
     display: none; 
+}
+.container{
+    width: 100vw;
+    height: 400vh;
+    display: flex;
+    flex-direction: column;
+    transition: 1s;
+}
+.home-section, .who-section, .projects-section, .contact-section{
+    
+    height: 100vh;
+    width: 100vw;
+    position: relative !important;
+    overflow: hidden;
+    
 }
 .header{
     overflow-x: hidden;
@@ -83,9 +96,9 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 }
 .big-lines-container{
     position: absolute;
-    top: 0%;
+    bottom: 0;
     left: 0%;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
 }
@@ -308,8 +321,6 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 
 
 .who-section{
-    position: absolute;
-    top: 100vh;
     height: 100vh;
     width: 100vw;
     background-color: rgba(234, 133, 214,0.4);
@@ -441,11 +452,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 .projects-section{
     height: 100vh;
     width: 100vw;
-    position: absolute;
-    top: calc(200vh);
-    left: 0;
     background-color:#083110;
-    overflow: hidden;
     background-image: url('img/showcase/chess-preview.gif');
     background-size: cover;
 }
@@ -491,6 +498,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
 .projects-names-container{
     position: absolute;
     top: calc(60px + 4.5vh);
@@ -523,6 +531,8 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     right: 10%;
     height: calc(200px + 15vw);
     width: calc(200px + 15vw);
+    background-image: url(img/showcase/chess-preview.gif);
+    background-size: contain;
 }
 .image-preview>img{
     height: calc(200px + 15vw);
@@ -595,12 +605,6 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 }
 
 .contact-section{
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: calc(300vh);
-    left: 0;
-    overflow: hidden;
     background-image: url('img/showcase/NCRJI.gif');
     background-size: cover;
 }
@@ -682,6 +686,12 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
 }
 .contact-links-instagram{
     top: 45%;
+}
+.contact-section-page-number{
+    left:  0;
+}
+.contact-section-page-number>p{
+    background-color: rgba(200,0,200,0.7);
 }
 /*.contact-links::after{
     content: '>';
@@ -809,6 +819,9 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     .about-me{
         width: 90%;
     }
+    .about-me>p{
+        font-size: calc(20px + 3.25vw);
+    }
     .who-section-page-number>p{
         padding-left: 3px;
         font-size: calc(20px + 2.55vw);
@@ -836,10 +849,22 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     .contact-header{
         font-size: 60px;
         padding: 0px 50px;
+        
     }
-    .contact-ul>li>a{
+    .contact-section-page-number{
+        position: absolute;
+        height: 70px;
+        top: unset;
 
+        bottom: 15%;
+        left: 5%;
+        
     }
+    
+    .contact-section-page-number>p{
+        font-size: calc(30px + 2.55vw);
+    }
+   
 }
 @media screen and (max-width: 400px){
     .header{
