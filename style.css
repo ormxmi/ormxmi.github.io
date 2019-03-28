@@ -820,7 +820,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
         width: 90%;
     }
     .about-me>p{
-        font-size: calc(20px + 3.25vw);
+        font-size: calc(15px + 3.25vw);
     }
     .who-section-page-number>p{
         padding-left: 3px;
