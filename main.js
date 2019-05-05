@@ -171,8 +171,9 @@ function previewProject(projectId, el){
     if(document.getElementsByClassName("projects-inner-heading")[i].id==el.id){
       document.getElementsByClassName("projects-inner-heading")[i].style.color = "white";
       document.getElementsByClassName("projects-inner-heading")[i].style.backgroundColor = "rgba(0,0,111,1)";
-      document.getElementById("image-preview-inner-cover-anchor").href = "https://ormxmi.github.io/"+el.id+"/";
       
+      document.getElementById("image-preview-inner-cover-anchor").href = "https://ormxmi.github.io/"+el.id+"/";
+      if(el.id === "annamaria") document.getElementById("image-preview-inner-cover-anchor").href = "https://an2a.me";
     }
     else{
       document.getElementsByClassName("projects-inner-heading")[i].style.color = "rgba(255,255,255,0.7)";
