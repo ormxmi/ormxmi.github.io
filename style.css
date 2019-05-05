@@ -453,7 +453,7 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     height: 100vh;
     width: 100vw;
     background-color:#083110;
-    background-image: url('img/showcase/chess-preview.gif');
+    background-image: url('img/showcase/art-preview.gif');
     background-size: cover;
 }
 .projects-section::before{
@@ -504,13 +504,21 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     top: calc(60px + 4.5vh);
     left: -5%;
     width: 120%;
-    height: 15%;
     user-select: none;
-    overflow: hidden;
     transform: rotate(-11deg);
     background-color: rgba(0,0,0,0.9);
     border-top: 4px solid rgba(0,0,111,1);
     border-bottom: 4px solid rgba(0,0,111,1);
+}
+
+.projects-names-container > div:nth-of-type(1)::after {
+    position: absolute;
+    bottom: -40px;
+    content: 'NEW';
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: green;
 }
 
 .projects-inner-heading{
@@ -525,13 +533,15 @@ body::-webkit-scrollbar,.header::-webkit-scrollbar {
     transition: 0.2s;
     animation: moving 5.5s linear infinite;   
 }
+
+
 .image-preview{
     position: absolute;
     bottom: 10%;
     right: 10%;
     height: calc(200px + 15vw);
     width: calc(200px + 15vw);
-    background-image: url(img/showcase/chess-preview.gif);
+    background-image: url(img/showcase/art-preview.gif);
     background-size: contain;
 }
 .image-preview>img{
